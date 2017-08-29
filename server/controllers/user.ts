@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 import * as jwt from 'jsonwebtoken';
 import * as nodemailer from 'nodemailer';
 
-import User from '../models/user';
+import User from '../models/userModel';
 import BaseCtrl from './base';
 
 export default class UserCtrl extends BaseCtrl {

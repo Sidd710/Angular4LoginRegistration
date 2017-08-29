@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   forgot(email) {
-    debugger;
+    
    //  this.loggedIn = true;
     var userModel = new UserModel();
     this.numRandomed = Math.floor(Math.random()*(10000000-20000000+1)+10000000);
