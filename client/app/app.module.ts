@@ -1,5 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
 import { RoutingModule } from './routing.module';
 import { SharedModule } from './shared/shared.module';
 import { UserService } from './services/user.service';
@@ -20,6 +20,8 @@ import { BrandsComponent } from './brands/brands.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { HomeComponent } from './home/home.component';
 import { HomeDashboardComponent } from './home-dashboard/home-dashboard.component';
+import { FacebookModule } from 'ngx-facebook';
+import { TwitterService } from 'ng2-twitter';
 
 @NgModule({
   declarations: [
@@ -44,13 +46,19 @@ import { HomeDashboardComponent } from './home-dashboard/home-dashboard.componen
   ],
   imports: [  
     RoutingModule,
-    SharedModule
+    HttpModule,
+    SharedModule,
+    FacebookModule.forRoot(),
+    HttpModule,
+    
   ],
   providers: [
     AuthService,
     AuthGuardLogin,
     AuthGuardAdmin,
-    UserService 
+    UserService ,
+    TwitterService, // Add
+    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
