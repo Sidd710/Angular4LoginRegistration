@@ -3,7 +3,7 @@ import * as express from 'express';
 
 import UserCtrl from './controllers/user';
 
-import User from './models/user';
+import User from './models/userModel';
 
 export default function setRoutes(app) {
 

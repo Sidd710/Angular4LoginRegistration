@@ -17,17 +17,21 @@ userSchema.pre('save', function(next) {
     if (err) { return next(err); }
     bcrypt.hash(user.password, salt, function(error, hash) {
       if (error) { return next(error); }
-      user.password = hash;
+      user.password = user.password;
       next();
     });
   });
 });
 
 userSchema.methods.comparePassword = function(candidatePassword, callback) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-    if (err) { return callback(err); }
-    callback(null, isMatch);
-  });
+  if(candidatePassword==this.password)
+    {
+      callback(null, true);
+    }
+  // bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+  //   if (err) { return callback(err); }
+  //   callback(null, isMatch);
+  // });
 };
 
 // Omit the password when returning a user
